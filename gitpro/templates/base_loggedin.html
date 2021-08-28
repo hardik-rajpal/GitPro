@@ -1,0 +1,39 @@
+<style>
+    #credits{
+    margin-top:5%;
+    color:red;
+    font-size: 20pt;
+    font-family: 'Courier New', Courier, monospace;
+    }
+    #header{
+        margin:auto;
+        text-align: center;
+        background-color: #f8f9fa;
+    }
+    #welcome{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:60pt;
+    }
+    .stdbtn{
+        font-size: 30pt;
+        color:white;
+        background-color:#0d6efd;
+        border-radius: 5pt;
+        padding:5pt;
+    }
+    p{
+        margin:0
+    }
+    form{
+        font-size: 20pt;
+        font-family: Calibri;
+    }
+</style>
+<header>
+    <div id="header">
+    <p id="credits"><b>Built by 200050048 200050119</b></p>
+    <p id="welcome">Welcome to GitHub Profiles!</p>
+    {% include "hdbtns_loggedin.html" %}
+    </div>
+</header>
+{% block content %} {% endblock %}

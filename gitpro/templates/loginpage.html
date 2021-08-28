@@ -1,0 +1,14 @@
+<header>
+    <div id="header">
+    {% include "title.html" %}
+    {% include "hdbtns_loggedout.html" %}
+    </div>
+</header>
+{% block content %}
+<p class="larget">Login to Github Profile </p>
+    <form action="/accounts/checkin/" method="POST">{% csrf_token %}
+        Username: <input type="text" name="username" class="entry"><br><br>
+        Password: <input type="password" name="password" class="entry"><br><br>
+        <button type="submit" class="stdbtn">Login</button>
+    </form>
+{% endblock %}
