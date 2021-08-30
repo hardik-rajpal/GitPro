@@ -1,0 +1,14 @@
+{% include "title.html" %}
+<p class="larget">{{first_name}} {{last_name}} (@{{profile_username}})</p>
+
+<p>{{num_followers}} followers<br>
+Profile last updated: {{ last_updated }} 
+{% if user.username == profile_username %}
+<a href="/update/">(Update Now)</a>
+{% endif %}
+</p>
+<ul>
+    {% for repo,stars in repos.items %}
+    <li>{{ repo }} - {{ stars }} stars</li>
+    {% endfor %}
+</ul>

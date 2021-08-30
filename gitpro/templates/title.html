@@ -1,4 +1,12 @@
 <style>
+    input[type="text"]{
+        font-size:20pt;
+        margin:10pt;
+    }
+    input[type="password"]{
+        font-size:20pt;
+        margin:10pt;
+    }
     #credits{
     margin-top:5%;
     color:red;
@@ -21,8 +29,9 @@
         border-radius: 5pt;
         padding:5pt;
     }
-    p{
-        margin:0
+    p,li{
+        margin:0;
+        font-size: 20pt;
     }
     form{
         font-size: 20pt;
@@ -32,5 +41,22 @@
         font-size:20pt;
     }
 </style>
-<p id="credits"><b>Built by 200050048 200050119</b></p>
-<p class="larget">Welcome to GitHub Profiles!</p>
+
+<header>
+    <div id="header">
+    <p id="credits"><b>Built by 200050048 200050119</b></p>
+    <p class="larget">Welcome to GitHub Profiles!</p>
+    {% if user.is_authenticated %}
+    <span>    
+        <button class="stdbtn"><a href="/explore/">Explore</a></button>
+        <button class="stdbtn"><a href="/profile/{{user.username}}">My Profile</a></button>
+        <button class="stdbtn"><a href="{% url 'logout' %}">Logout</a></button>
+    </span>
+    {% else %}
+    <span>    
+        <button class="stdbtn"><a href="/accounts/register/">Signup</a></button>
+        <button class="stdbtn"><a href="/accounts/login/">Login</a></button>
+    </span>
+    {% endif %}
+    </div>
+</header>

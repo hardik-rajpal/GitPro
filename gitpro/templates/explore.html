@@ -1,2 +1,6 @@
-I am the explore.html page.
-What is my purpose?
+{% include "title.html" %}
+<ul>
+    {% for user in users %}
+    <li><a href = "/profile/{{user}}"> {{user}} </a></li>
+    {% endfor %}
+</ul>

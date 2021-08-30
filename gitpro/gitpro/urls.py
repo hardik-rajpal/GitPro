@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from othryz import views
 urlpatterns = [
+    path('', views.register),
     path('admin/', admin.site.urls),
-    path('signup/', include('othryz.urls')),
+    path('dashboard/', views.checkin),
+    path('profile/<str:profile_username>', views.profile),
+    path('update/', views.updateProfile),
     path('accounts/', include('othryz.urls')),
+    path('explore/', views.explore),
+    # path('accounts/', include('django.contrib.auth.urls')),
 ]
