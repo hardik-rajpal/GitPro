@@ -52,7 +52,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+import os
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 ROOT_URLCONF = 'gitpro.urls'
 
 TEMPLATES = [

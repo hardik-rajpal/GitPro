@@ -13,16 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls.conf import re_path
+from django.views.generic.base import RedirectView
 from django.contrib import admin
 from django.urls import path, include
 from othryz import views
 urlpatterns = [
-    path('', views.register),
     path('admin/', admin.site.urls),
     path('dashboard/', views.checkin),
     path('profile/<str:profile_username>', views.profile),
     path('update/', views.updateProfile),
     path('accounts/', include('othryz.urls')),
     path('explore/', views.explore),
+    path('error/', views.error),
+    re_path(r'^.*$', RedirectView.as_view(url='/dashboard/', permanent=False), name='catchall')
     # path('accounts/', include('django.contrib.auth.urls')),
 ]

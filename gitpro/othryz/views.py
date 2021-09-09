@@ -18,7 +18,10 @@ def profile(request, profile_username):
     repos = Repository.objects.filter(user=profileobj)
     repos_dict = {repo.name:repo.stars for repo in repos}
     return render(request, "profile.html", {'repos':repos_dict,'profile_username': profileobj.user.username, 'first_name':profileobj.user.first_name , 'last_name':profileobj.user.last_name ,'num_followers':profileobj.num_followers, 'last_updated':profileobj.last_updated})
-def checkin(request):
+def checkin(request:HttpRequest):
+    if(request.path!='/dashboard/'):
+        print(request.path)
+        return redirect('/dashboard/')
     return render(request, "title.html")
 def explore(request):
     userlist = []
@@ -30,12 +33,14 @@ def gitHubAccExists(username):
     apiurl = 'https://api.github.com/users/' + username
     res = requests.get(apiurl)
     return res.status_code==200
+def error(request):
+    return render(request, "error.html")
 def updateProfile(request, user=None, assign_dummy=False):
     t = datetime.now()
     if(user==None):
         user=get_user(request)
         user = User.objects.get(username=user.username)
-    assign_dummy = gitHubAccExists(user.username)
+    assign_dummy = not gitHubAccExists(user.username)
     if(assign_dummy):
         num_followers = 0
         profileobj,created = Profile.objects.get_or_create(user = user)
