@@ -21,7 +21,7 @@ from othryz import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', views.checkin),
-    path('profile/<str:profile_username>', views.profile),
+    path('profile/<str:profile_username>/', views.profile),
     path('update/', views.updateProfile),
     path('accounts/', include('othryz.urls')),
     path('explore/', views.explore),

@@ -1,3 +1,5 @@
 {% load static %}
-{% include "title.html" %}
+{% extends 'title.html' %}
+{% block content %}
 <img src="{% static 'error404.png' %}" />
+{% endblock %}

@@ -1,6 +1,8 @@
-{% include "title.html" %}
+{% extends 'title.html' %}
+{% block content %}
 <ul class="spaced-1">
     {% for user in users %}
-    <li><a href = "/profile/{{user}}" class="btn btn-outline-primary btn-lg"> {{user}} </a></li>
+    <li><a href = "/profile/{{user}}/" class="btn btn-outline-primary btn-lg"> {{user}} </a></li>
     {% endfor %}
 </ul>
+{% endblock %}

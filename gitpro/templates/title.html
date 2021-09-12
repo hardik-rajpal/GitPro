@@ -1,3 +1,8 @@
+{% load static %}
+<html>
+    <head>
+        <title></title>
+        <link rel="icon" href="{% static 'gp.png' %}" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
     input[type="text"]{
@@ -56,7 +61,8 @@
         margin-right: 0.5%;
     }
 </style>
-
+</head>
+<body>
 <header>
     <div id="header" class="text-center">
     <p id="credits"><b>Built by 200050048 200050119</b></p>
@@ -64,7 +70,7 @@
     {% if user.is_authenticated %}
     <span>    
         <a class="btn btn-primary btn-lg" href="/explore/">Explore</a>
-        <a class="btn btn-primary btn-lg" href="/profile/{{user.username}}">My Profile</a>
+        <a class="btn btn-primary btn-lg" href="/profile/{{user.username}}/">My Profile</a>
         <a class="btn btn-primary btn-lg" href="{% url 'logout' %}">Logout</a>
     </span>
     {% else %}
@@ -77,3 +83,14 @@
 </header>
 <br>
 <br>
+{% block content %}
+{% endblock %}
+</body>
+<script>
+    kw = window.location.href.split("/").slice(-2, -1)[0]
+    kw = kw.charAt(0).toUpperCase() + kw.slice(1)
+    console.log(kw)
+    title = document.querySelector('title')
+    title.innerHTML = title.innerHTML + kw
+</script>
+</html>

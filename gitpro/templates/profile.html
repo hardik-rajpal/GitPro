@@ -1,4 +1,5 @@
-{% include "title.html" %}
+{% extends 'title.html' %}
+{% block content %}
 <div class="indented-1">
 <p class="display-1"><strong>{{first_name}} {{last_name}} (@{{profile_username}})</strong></p>
 
@@ -15,3 +16,4 @@
     </ul>
     </p>
 </div>
+{% endblock %}
