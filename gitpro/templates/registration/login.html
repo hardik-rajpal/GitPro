@@ -1,6 +1,8 @@
 {% include "title.html" %}
-<p class="larget">Login to Github Profile </p>
+<div class="indented-1">
+<p class="display-1"><strong>Login to Github Profile </strong></strong></p>
     <form method="POST">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="stdbtn">Login</button>
+        <button type="submit" class="btn btn-primary btn-lg">Login</button>
     </form>
+</div>
