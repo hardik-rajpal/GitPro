@@ -1,5 +1,5 @@
 {% include "title.html" %}
-<ul>
+<ul class="spaced-1">
     {% for user in users %}
     <li><a href = "/profile/{{user}}" class="btn btn-outline-primary btn-lg"> {{user}} </a></li>
     {% endfor %}

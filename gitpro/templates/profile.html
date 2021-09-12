@@ -7,10 +7,11 @@
     {% if user.username == profile_username %}
     <a href="/update/">(Update Now)</a>
     {% endif %}
-    </p>
+    
     <ul>
         {% for repo,stars in repos.items %}
         <li>{{ repo }} - {{ stars }} stars</li>
         {% endfor %}
     </ul>
+    </p>
 </div>
