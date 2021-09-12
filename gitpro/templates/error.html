@@ -1,5 +1,7 @@
 {% load static %}
 {% extends 'title.html' %}
 {% block content %}
+<p class="alert alert-warning">{{message}}</p>
+<br><br>
 <img src="{% static 'error404.png' %}" />
 {% endblock %}

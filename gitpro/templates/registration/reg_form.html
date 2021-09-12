@@ -1,7 +1,8 @@
 {% extends 'title.html' %}
 {% block content %}
 <div class="indented-1"><p class="display-1"><strong>Signup with Github profile</strong></strong></p>
-<form method="POST">
+    {{errmsg | safe}}
+    <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
 <button class="btn btn-primary btn-lg" type="submit">Signup</button>
