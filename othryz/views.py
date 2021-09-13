@@ -1,6 +1,6 @@
-from django.forms.utils import ErrorDict
-from datetime import datetime
+from django.utils import timezone
 from .forms import GitProUserForm
+import datetime
 from django.http.request import HttpRequest
 from othryz.models import Profile, Repository
 from django.contrib.auth.models import User
@@ -33,7 +33,9 @@ def gitHubAccExists(username):
 def error(request):
     return render(request, "error.html")
 def updateProfile(request, user=None):
-    t = datetime.now()
+    # IND_OFFSET = 330
+    # t = timezone.now() + datetime.timedelta(minutes=int(tzo)+IND_OFFSET)
+    t = datetime.datetime.now()
     if(user==None):
         user=get_user(request)
         user = User.objects.get(username=user.username)

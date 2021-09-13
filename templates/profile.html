@@ -6,7 +6,7 @@
     <p><em>{{num_followers}} followers<br>
     Profile last updated : {{ last_updated }} </em>
     {% if user.username == profile_username %}
-    <a href="/update/">(Update Now)</a>
+    <a href="/update/" class="updater">(Update Now)</a>
     {% endif %}
     
     <ul>
@@ -16,4 +16,20 @@
     </ul>
     </p>
 </div>
+<script>
+    //Script to accomodate international users:
+    //uncomment the below script and change urls /update/
+    //to /update/<str:tzo>/
+    //collect tzo as default arg in updateProfile
+    //and uncomment the commented bit at the start
+    //Also collect timezone in reg_form.html
+    // window.onload=()=>{
+    //     a = document.querySelector('.updater')
+    //     console.log(a)
+    //     if(a!=null){
+    //         tz = (new Date()).getTimezoneOffset()
+    //         a.setAttribute("href", "/update/" + tz +"/")
+    //     }
+    // }
+</script>
 {% endblock %}
